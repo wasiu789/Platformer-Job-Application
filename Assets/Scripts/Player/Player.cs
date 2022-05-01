@@ -51,12 +51,10 @@ public class Player : MonoBehaviour
     //Plays the Death animation
     private void Die()
     {
-       if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             anim.SetBool("IsDead", true);
         }
-         
-        
 
 
 
@@ -108,7 +106,7 @@ public class Player : MonoBehaviour
             takeDamage(20);
             if (currentHealth <= 0)
             {
-                RestartLevel();
+                GameOver();
 
 
             }
@@ -140,12 +138,6 @@ public class Player : MonoBehaviour
         
     }
 
-    //Upon the end of the animation Restart the level the player is on
-    private void RestartLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
     private void StopMovement()
     {
         body.bodyType = RigidbodyType2D.Static;
@@ -172,6 +164,11 @@ public class Player : MonoBehaviour
 
 
 
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene(3);
     }
     
 }
