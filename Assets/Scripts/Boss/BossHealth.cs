@@ -13,9 +13,12 @@ public class BossHealth : MonoBehaviour
     private MeleeEnemy buff;
     private SpriteRenderer sprite;
     private BoxCollider2D boxCollider;
+    
 
     [Header("HealthBar")]
     public BossHealthBar healthBar;
+
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -78,6 +81,7 @@ public class BossHealth : MonoBehaviour
             boxCollider.enabled = false;
             body.bodyType = RigidbodyType2D.Static;
             healthBar.enabled = false;
+            
         
        
     }

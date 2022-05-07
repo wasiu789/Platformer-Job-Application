@@ -104,19 +104,19 @@ public class Player : MonoBehaviour
         if (collision.tag == "Fall Detector")
         {
             takeDamage(20);
-            if (currentHealth <= 0)
+            //Makes sure the player doesn't die from fall damage 
+            if (currentHealth <= 20)
             {
-                GameOver();
+                Heal(20);
 
 
-            }
+            } 
             //moves the player back to the respawn point
             transform.position = respawnPoint;
             }
         else if(collision.tag == "Check Point")
         {
             respawnPoint = transform.position;
-            
         }
 
 
