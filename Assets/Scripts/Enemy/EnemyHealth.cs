@@ -65,18 +65,20 @@ public class EnemyHealth : MonoBehaviour
     }
 
     //Plays the death animation and Disables the box collider and stops the patrolling of the enemy
-    private void Dead()
+    public void Dead()
     {
         anim.SetBool("IsDead", true);
         boxcollider.enabled = false;
         body.GetComponent<AIPatrol>().enabled = false;
+   
+
     }
 
   
     //Put as an event to happen after the enemy animation to destory it. 
     private void DestoryEnemy()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
 

@@ -19,14 +19,17 @@ public class MeleeEnemy : MonoBehaviour
     
     private Animator anim;
     private Player player;
+    private AIPatrol enemyPatrol;
 
-  
+
+
 
     private Player playerHealth;
     // Start is called before the first frame update
     void Awake()
     {
         anim = GetComponent<Animator>();
+        enemyPatrol = GetComponentInParent<AIPatrol>();
     }
 
     // Update is called once per frame
@@ -44,7 +47,10 @@ public class MeleeEnemy : MonoBehaviour
                 cooldownTime = 0;
                 anim.SetTrigger("Attack");
             }
+            
         }
+        if (enemyPatrol != null)
+            enemyPatrol.enabled = !PlayerInSight();
 
     }
 
